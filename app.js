@@ -1,23 +1,29 @@
-let submit = document.querySelector('.submit');
-let titleInput = document.querySelector('#title');
-let textInput = document.querySelector('.text');
-let optionsInput = document.querySelector('.cars');
-let errorText = '';
-let successText = '';
-let url = 'https://fcm.googleapis.com/fcm/send';
+const submit = document.querySelector('.submit');
+const titleInput = document.querySelector('#title');
+const textInput = document.querySelector('.text');
+let optionsInput = document.querySelector('.Page');
+let tabViewInput = document.querySelector('.tabView');
+const error = document.querySelector('.error-text');
+const errorText = '';
+const successText = '';
+const url = 'https://fcm.googleapis.com/fcm/send';
 submit.addEventListener('click', () => {
-    var title = titleInput.value;
-    var text = textInput.value;
-    var page = optionsInput.value;
+    let title = titleInput.value;
+    let text = textInput.value;
+    let page = optionsInput.value;
+    let tabViewIndex = tabViewInput.value;
     titleInput.value = '';
     textInput.value = '';
-
+    optionsInput.value = 'NaN';
     console.log(`title: ${title}`);
     console.log(`text: ${text}`);
     console.log(`page: ${page}`);
-    if (title == '' || text == '' || page == '') {
+    console.log(`page: ${tabViewIndex}`);
+    if (title == '' || text == '' || page == 'NaN') {
         console.log('error');
         titleInput.focus();
+        error.innerHTML = `<p>An Error Has Occured</p>`;
+
         // displays the error message
     } else {
 
@@ -35,7 +41,7 @@ submit.addEventListener('click', () => {
                     },
                     "data": {
                         "page": page,
-                        "tabViewIndex": 0
+                        "tabViewIndex": tabViewIndex
                     },
 
                     "priority": "High",
@@ -47,8 +53,10 @@ submit.addEventListener('click', () => {
             .then((result) => {
                 if (result['message_id']) {
                     //Show success message
+                    error.innerHTML = `<p style="color: green;">Success</p>`;
                 } else {
                     //show error message
+                    error.innerHTML = `<p>An Error Has Occured</p>`;
                 }
                 console.log(result);
             })
