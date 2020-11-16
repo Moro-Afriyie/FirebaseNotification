@@ -4,37 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>notification</title>
 </head>
 
 <body>
-
-    <h3>Notification</h3>
     <div class="container">
-        <form>
-            <label>Title:</label><br>
-            <input type="text" id="title" name="title" placeholder="Enter a title"><br>
-            <label>Text</label><br>
-            <Textarea></Textarea><br>
-            <label> Select page:</label><br>
-            <select class="Page" name="Page">
-                <option value="Home">Home</option>
-                <option value="Leage">league</option>
-                <option value="radio">radio</option>
-            </select><br>
-            <div class="result"></div>
-            <div class="error-text">
-                <h5>error</h5>
-            </div>
-            <button>Submit</button>
-            <div class="success-text">
-                <h5>Success</h5>
-            </div>
-        </form>
+        <div class="content">
+            <h3>Notification</h3>
+            <form>
+                <label>Title:</label><br>
+                <input type="text" id="title" name="title" placeholder="Enter a title"><br><br>
+                <label>Text:</label><br>
+                <Textarea placeholder="Type text..."></Textarea><br><br>
+                <label> Select page:</label><br>
+                <select class="Page" name="Page">
+                <option value="Nan" >select a page</option>
+                <option value="league table" >League table</option>
+                <option value="radio">Radio</option>
+                <option value="home">Home</option>
+                </select><br>
+                <br>
+
+                <div id="second-Page">
+                    <label> Select Tab:</label>
+                    <select name="Page">
+                        <option value="0" >0</option>
+                        <option value="1" >1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        </select><br>
+                </div>
+
+
+                <!-- <div class="result"></div> -->
+                <div class="error-text">
+                </div>
+                <button>Submit</button>
+                <div class="success-text">
+                </div>
+            </form>
+        </div>
 
     </div>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
 </body>
 
 </html>
