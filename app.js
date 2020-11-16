@@ -7,6 +7,24 @@ const error = document.querySelector('.error-text');
 const errorText = '';
 const successText = '';
 const url = 'https://fcm.googleapis.com/fcm/send';
+
+// switching between second-page and first page class or the tab view 
+const selectElement = document.querySelector('select');
+document.getElementById("second-Page").style.display = 'none';
+
+selectElement.addEventListener('change', (event) => {
+    const result = document.querySelector('.result');
+
+    console.log(event.target.value);
+    if (event.target.value == "home") {
+        document.getElementById("second-Page").style.display = 'block';
+        // result.textContent = `You selected ${event.target.value}`;
+    } else {
+        document.getElementById("second-Page").style.display = 'none';
+    }
+});
+
+// when the user clicks the submit button
 submit.addEventListener('click', () => {
     let title = titleInput.value;
     let text = textInput.value;
@@ -18,7 +36,7 @@ submit.addEventListener('click', () => {
     console.log(`title: ${title}`);
     console.log(`text: ${text}`);
     console.log(`page: ${page}`);
-    console.log(`page: ${tabViewIndex}`);
+    console.log(`tab View Index: ${tabViewIndex}`);
     if (title == '' || text == '' || page == 'NaN') {
         console.log('error');
         titleInput.focus();
@@ -32,6 +50,7 @@ submit.addEventListener('click', () => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": "key=AAAAWjEVoU8:APA91bEjKEYhLd5CKGfLEpKN2oiHxXxHhPfQWD0nuqPQEZBGXdKS4lF7CTKLOqBlLZZz7AaUFHwbtATiZjfYZ_je6cuu_mJFkYAnpbvcLDV19LMaiStmMCs-Pfpd87jc1ayOSbjZ2OKf",
                 },
                 body: {
                     "notification": {
