@@ -1,0 +1,30 @@
+.container {
+    display: block;
+}
+
+h3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-block-start: 0em;
+    margin-block-end: 1em;
+}
+
+label {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+input {
+    width: 20%;
+    border: none;
+    border-bottom: 1px solid blue
+}
+
+button {
+    background-color: blue;
+    border: none;
+    color: white;
+    height: 36px;
+    width: 100px;
+    border-radius: 8px;
+}

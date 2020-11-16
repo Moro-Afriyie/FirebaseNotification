@@ -10,19 +10,31 @@
 
 <body>
 
-    <div con>
-        <label>Title:</label><br>
-        <input type="text" id="title" name="title" placeholder="Enter a title"><br>
-        <label for="lname">Text</label><br>
-        <Textarea></Textarea>
-        <select id="cars" name="cars">
-        <option value="volvo">Home</option>
-        <option value="saab">league</option>
-        <option value="fiat">radio</option>
-    </select>
-        <button>Submit</button>
-    </div>
+    <h3>Notification</h3>
+    <div class="container">
+        <form>
+            <label>Title:</label><br>
+            <input type="text" id="title" name="title" placeholder="Enter a title"><br>
+            <label>Text</label><br>
+            <Textarea></Textarea><br>
+            <label> Select page:</label><br>
+            <select class="Page" name="Page">
+                <option value="Home">Home</option>
+                <option value="Leage">league</option>
+                <option value="radio">radio</option>
+            </select><br>
+            <div class="result"></div>
+            <div class="error-text">
+                <h5>error</h5>
+            </div>
+            <button>Submit</button>
+            <div class="success-text">
+                <h5>Success</h5>
+            </div>
+        </form>
 
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
