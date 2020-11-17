@@ -28,9 +28,6 @@ submit.addEventListener('click', () => {
     let text = textInput.value;
     let page = optionsInput.value;
     let tabViewIndex = tabViewInput.value;
-    titleInput.value = '';
-    textInput.value = '';
-    optionsInput.value = 'NaN';
     console.log(`title: ${title}`);
     console.log(`text: ${text}`);
     console.log(`page: ${page}`);
@@ -75,6 +72,9 @@ submit.addEventListener('click', () => {
                 if (result['message_id']) {
                     //Show success message
                     error.innerHTML = `<p style="color: green;">Success</p>`;
+                    titleInput.value = '';
+                    textInput.value = '';
+                    optionsInput.value = 'NaN';
 
                 } else {
                     //show error message
