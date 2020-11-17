@@ -4,6 +4,7 @@ const textInput = document.querySelector('.text');
 let optionsInput = document.querySelector('.Page');
 let tabViewInput = document.querySelector('.tabView');
 const error = document.querySelector('.error-text');
+const modal = document.querySelector('.modal');
 const errorText = '';
 const successText = '';
 const url = 'https://fcm.googleapis.com/fcm/send';
@@ -13,12 +14,9 @@ const selectElement = document.querySelector('select');
 document.getElementById("second-Page").style.display = 'none';
 
 selectElement.addEventListener('change', (event) => {
-    const result = document.querySelector('.result');
-
-    console.log(event.target.value);
     if (event.target.value == "home") {
         document.getElementById("second-Page").style.display = 'block';
-        // result.textContent = `You selected ${event.target.value}`;
+
     } else {
         document.getElementById("second-Page").style.display = 'none';
     }
@@ -45,12 +43,13 @@ submit.addEventListener('click', () => {
         // displays the error message
     } else {
 
+        modal.style.display = 'block';
         // fetch the data
         fetch(url, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "key=AAAAWjEVoU8:APA91bEjKEYhLd5CKGfLEpKN2oiHxXxHhPfQWD0nuqPQEZBGXdKS4lF7CTKLOqBlLZZz7AaUFHwbtATiZjfYZ_je6cuu_mJFkYAnpbvcLDV19LMaiStmMCs-Pfpd87jc1ayOSbjZ2OKf",
+                    "Authorization": "key=AAAAWjEVoU8:APA91bEjKEYhLd5CKGfLEpKN2oiHxXxHhPfQWD0nuqPQEZBGXdKS4lF7CTKLOqBlLZZz7AaUFHwbtATiZjfYZ_je6cuu_mJFkYAnpbvcLDV19LMaiStmMCs-Pfpd87jc1ayOSbjZ2OKf"
                 },
                 body: {
                     "notification": {
@@ -69,17 +68,24 @@ submit.addEventListener('click', () => {
 
                 },
             })
+            .then(response => response.json())
             .then((result) => {
+                // let me = result.body.json();
+
                 if (result['message_id']) {
                     //Show success message
                     error.innerHTML = `<p style="color: green;">Success</p>`;
+
                 } else {
                     //show error message
                     error.innerHTML = `<p>An Error Has Occured</p>`;
                 }
+                modal.style.display = 'none';
                 console.log(result);
             })
             .catch((ex) => {
+                modal.style.display = 'none';
+                error.innerHTML = `<p>An Error Has Occured</p>`;
                 console.log(ex);
             });
     }

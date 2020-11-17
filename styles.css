@@ -88,3 +88,96 @@ select {
     text-align: center;
     color: red;
 }
+
+
+/************************LOADING EFFECT*****/
+
+.modal {
+    /* display: none; */
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    /* Fallback color */
+    background: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/****************************/
+
+.loading {
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border-top: 10px solid #e74c3c;
+    position: relative;
+    animation: a1 2s linear infinite;
+    z-index: 1;
+    margin: 10px auto;
+}
+
+.loading::before,
+.loading::after {
+    content: '';
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    top: -10px;
+    box-sizing: border-box;
+    border-radius: 50%;
+}
+
+.loading::before {
+    border-top: 10px solid #e67e22;
+    transform: rotate(120deg);
+}
+
+.loading::after {
+    border-top: 10px solid #3498db;
+    transform: rotate(240deg);
+}
+
+.loading span {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    color: #fff;
+    text-align: center;
+    line-height: 200px;
+    animation: a2 2s linear infinite;
+}
+
+@keyframes a1 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes a2 {
+    to {
+        transform: rotate(-360deg);
+    }
+}
